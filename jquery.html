@@ -71,7 +71,12 @@
 		}
 
 		function ajaxJS() {
-		
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET','https://dev191795.service-now.com',true);
+			xhr.setRequestHeader('Content-Type','application/json');
+			xhr.setRequestHeader('Authorization','Basic '+btoa('abel.tuter:Password@2024!'));
+			xhr.send();
+
 		}
 
 		function ajaxJQ() {
