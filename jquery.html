@@ -2,15 +2,70 @@
 	<head>
 		<title>jQuery KB3/22 Examples</title>
 	</head>
-	<body>
-		<ul>
-		<li class="myClass" id="myID"></li>
-		<li class="myClass"></li>
-		<li xyz="qwerty"></li>
-		<li xyz="qwerty"></li>
-		</ul>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js">	
+	<body>
+		<h2>
+		<ul>
+		<li class="myClass" id="myID">Text-1</li>
+		<li class="myClass">Text-2</li>
+		<li>Text-3</li>
+		<li xyz="qwerty">Text-4</li>
+		<li xyz="qwerty">Text-5</li>
+		</ul>
+		</h2>
+
+		<button onclick="console.log($('#myID'))">by Id</button>
+		<button onclick="console.log($('.myClass'))">by Class</button>
+		<button onclick="console.log($('li'))">by Tag</button>
+		<button onclick="getCombined('li.myClass')">Combined</button>
+		<button onclick="byAttribute('[xyz=\'qwerty\']')">by Attribute</button>
+		
+		<br/>
+		<br/>
+
+		<button onclick="console.log($('ul').find('li'))">by Parent</button>
+		<button onclick="console.log($('ul').find('li:first'))">by Parent - 1st</button>
+		<button onclick="console.log($('ul').find('li:last'))">by Parent - last</button>
+		<button onclick="console.log($('ul').find('li:eq(2)'))">by Parent - 3rd</button>
+
+		<br/>
+		<br/>
+
+		<button onclick="$('ul').find('li').text('Alles gut!')">Change Text for all</button><br/>
+		<button onclick="$('ul').find('li:first').css('color','red')">Change 1st Color</button><br/>
+		<button onclick="$('ul').find('li:last').css('display','none')">Hide last Element</button><br/>
+
+		<br/>
+		<br/>
+
+		<button onclick="createButton()">Create New Button</button>
+		<button onclick="displayBtn()">Add new Button to the DOM!</button>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		window.console.clear();
+		window.console.log("KB3/22 jQuery:");
+		console.log("...");
+
+		function getCombined(selector) {
+			var els = $(selector);
+			console.log(els);
+		}
+
+		var byAttribute = (a) => {
+			self.console.log(a);
+			console.log($(a));
+		}
+
+		var newBtn;
+
+		function createButton() {
+			newBtn = $("<button>I am the new Button!</button>");
+		}
+
+		function displayBtn() {
+			$('ul').before(newBtn);
+		}
 	</script>
 	</body>
 </html>
